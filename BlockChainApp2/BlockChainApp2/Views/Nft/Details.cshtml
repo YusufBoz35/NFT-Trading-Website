@@ -1,0 +1,35 @@
+﻿@model BlockChainApp2.Models.EntityFramework.nft
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="row text-center">
+
+    <div class="col-md-8">
+        <img class="img-fluid" src="https://via.placeholder.com/600x600" alt="">
+    </div>
+    <div class="col-md-4 text-left">
+        <p class="h2"> <b>@Html.DisplayFor(model => model.nft_nick)</b></p>
+        <p class="text-muted">Owned by <b class="text-primary h4">@Html.DisplayFor(model => model.user.user_name )</b></p>
+        <p class="text-muted">Created by  <b class="text-white">@Html.DisplayFor(model => model.nft_creator )</b></p>
+        <p class="text-muted">Category  <b class="text-white">@Html.DisplayFor(model => model.category.Category_name)</b></p>
+        <p class="text-muted">Current Price  <b class="text-white"><i class="bi bi-currency-dollar h5 text-green"></i>@Html.DisplayFor(model => model.nft_price)</b></p>
+        <p class="h4 text-secondary"></p>
+
+        @Html.ActionLink("Buy Nft","Buy","Nft", new {nft = Model}, new {@class = "btn btn-outline-primary" })
+
+        @*@using (Html.BeginForm("Buy", "Nft", FormMethod.Post))
+        {
+
+            <button type="submit" class="btn btn-outline-primary">Buy Nft</button>
+
+        }*@
+    </div>
+        
+
+
+
+
+
+</div>

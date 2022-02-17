@@ -1,0 +1,24 @@
+﻿@model IEnumerable<BlockChainApp2.Models.EntityFramework.nft>
+
+@{
+    ViewBag.Title = "Nft";
+}
+<div class="row mt-5 d-flex justify-content-between">
+
+    @foreach (var item in Model)
+    {   
+ 
+        <div class="col-md-3 m-3 text-center">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top bg-primary" src="https://via.placeholder.com/150x250" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Name : @Html.DisplayFor(modelItem => item.nft_nick )</h5>
+                    <p class="card-text">Creator : @Html.DisplayFor(modelItem => item.nft_creator)</p>
+                    <p class="card-text">Price : $@Html.DisplayFor(modelItem => item.nft_price)</p>
+                    @Html.ActionLink("Show Details", "Details", "Nft", new { id = item.nft_nick }, new { @class = "btn btn-outline-primary" })
+                </div>
+            </div>
+        </div>
+        }
+
+</div>

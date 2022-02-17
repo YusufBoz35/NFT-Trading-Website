@@ -1,0 +1,169 @@
+﻿@{ 
+    BlockChainApp2.Models.EntityFramework.login user = new BlockChainApp2.Models.EntityFramework.login();
+
+    user = (BlockChainApp2.Models.EntityFramework.login)Session["user"];
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Blockchain Admin Panel</title>
+    <link href="~/Content/sb-admin-2.css" rel="stylesheet" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-text mx-3">Blockchain Admin Panel</div>
+            </a>
+
+            <hr class="sidebar-divider my-0 text-white">
+
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                   aria-controls="collapseTwo">
+                    <i class="bi bi-list"></i>
+                    <span>Nft's</span>
+                </a>
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingTwo"
+                     data-parent="#accordionSidebar">
+                    <div class="bg-light py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Nft Settings:</h6>
+                        <a class="collapse-item" href="/Nft/List">See All Nft's</a>
+                        <a class="collapse-item" href="/Nft/Add">Add Nft</a>
+                    </div>
+                </div>
+            </li>
+
+            <hr class="sidebar-divider text-white">
+
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+                   aria-controls="collapseTwo">
+                    <i class="bi bi-list"></i>
+                    <span>Users</span>
+                </a>
+                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
+                     data-parent="#accordionSidebar">
+                    <div class="bg-light py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">User's Settings:</h6>
+                        <a class="collapse-item" href="/User/List">See All User's</a>
+                        <a class="collapse-item" href="/User/Add">Add User</a>
+                    </div>
+                </div>
+            </li>
+
+            <hr class="sidebar-divider text-white">
+        </ul>
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <div id="content">
+
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Home/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Home/Nft">All Nft's</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-white text-center">@user.user_nick</span>
+                                <i class=" h2 bi bi-person-circle"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                 aria-labelledby="userDropdown">
+                                @Html.ActionLink("Wallet", "UserWallet", new { id = user.user_nick }, new { @class = "dropdown-item" })
+                                @Html.ActionLink("Settings", "UserWallet", new { id = user.user_nick }, new { @class = "dropdown-item" })
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/User/Logout" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="text-white bi bi-box-arrow-left"></i>
+
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <div class="container-fluid text-left">
+                    @if (ViewBag.Message != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            @ViewBag.Message
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    }
+
+                    @RenderBody()
+                </div>
+
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            @DateTime.Now.Year - BlockChain Application
+                        </div>
+                    </div>
+                </footer>
+
+            </div>
+
+        </div>
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" href="/User/Logout">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+        <script src="~/Content/sb-admin-2.js"></script>
+        <script src="~/Content/chart-area-demo.js"></script>
+        <script src="~/Content/chart-pie-demo.js"></script>
+
+</body>
+
+</html>

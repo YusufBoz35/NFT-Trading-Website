@@ -1,0 +1,64 @@
+﻿@model IEnumerable<BlockChainApp2.Models.EntityFramework.nft>
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nft_nick)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nft_price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nft_creator)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nft_sale)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nft_source)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.category.Category_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.user.user_name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nft_nick)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nft_price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nft_creator)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nft_sale)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nft_source)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.category.Category_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.user.user_name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.nft_nick }) |
+            @Html.ActionLink("Details", "Details", new { id=item.nft_nick }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.nft_nick })
+        </td>
+    </tr>
+}
+
+</table>

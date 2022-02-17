@@ -1,0 +1,22 @@
+﻿@model BlockChainApp2.Models.EntityFramework.login
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <form method="post" action="/User/Login">
+            @Html.TextBoxFor(Model => Model.user_nick, new { @class = "fadeIn second", @id = "login", placeholder = "Username" })
+            @Html.PasswordFor(Model => Model.account_password, new { @class = "fadeIn third", @id = "password", placeholder = "Password" })
+            @*
+            <input type="text" id="login" class="fadeIn second" name="account_email" placeholder="Kullanıcı Adı">
+            <input type="text" id="password" class="fadeIn third" name="account_password" placeholder="Şifre">
+            *@
+
+            <input type="submit" class="fadeIn fourth" value="Login">
+        </form>
+
+    </div>
+</div>
+

@@ -1,0 +1,37 @@
+﻿@model BlockChainApp2.Models.EntityFramework.wallet
+
+@{
+    ViewBag.Title = "UserWallet";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.wallet_nft_count)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.wallet_nft_count)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.wallet_balance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.wallet_balance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.user.user_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.user.user_name)
+        </dd>
+
+    </dl>
+</div>

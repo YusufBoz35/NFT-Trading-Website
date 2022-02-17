@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bdb2727f968f454c96d257152750833d" Name="Diagram1">
+        <EntityTypeShape EntityType="BlockChainModel.block" Width="1.5" PointX="9.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlockChainModel.blockchain" Width="1.5" PointX="7.5" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlockChainModel.category" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlockChainModel.login" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlockChainModel.nft" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlockChainModel.sysdiagram" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlockChainModel.user" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlockChainModel.wallet" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlockChainModel.kisicüzdanbilgisi" Width="1.5" PointX="7.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlockChainModel.mailkisibilgi" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlockChainModel.nftbilgisi" Width="1.5" PointX="2.75" PointY="10.5" IsExpanded="true" />
+        <AssociationConnector Association="BlockChainModel.FK_block_blockchain" ManuallyRouted="false" />
+        <AssociationConnector Association="BlockChainModel.FK_blockchain_nft" ManuallyRouted="false" />
+        <AssociationConnector Association="BlockChainModel.FK_nft_category" ManuallyRouted="false" />
+        <AssociationConnector Association="BlockChainModel.FK_user_login" ManuallyRouted="false" />
+        <AssociationConnector Association="BlockChainModel.FK_nft_user" ManuallyRouted="false" />
+        <AssociationConnector Association="BlockChainModel.FK_wallet_user" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
